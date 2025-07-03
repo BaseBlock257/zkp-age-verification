@@ -1,13 +1,27 @@
-# Sample Hardhat Project
+# Sample zero-knowledge age check Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+This project demonstrates a basic zero-knowledge age proof use case. 
 
+User’s Input (Private):
+The user enters their birth year (e.g., 2002). This stays on their device.
+
+Circuit Logic:
+The circuit checks:
+
+circom
+>assert(currentYear - birthYear >= 18);
+This logic runs inside the ZK circuit to check if the age ≥ 18.
+
+Witness + Proof Generation (Local):
+The ZK circuit outputs a proof that this condition is true — without revealing what the birth year actually was.
+
+Verification (On-chain):
+A smart contract or verifier checks that the proof is valid — confirming the user is over 18 — without ever learning the birth year.
 Try running some of the following tasks:
 
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
+Compile the contract
+>npx hardhat compile
+Run your tests
+>npx hardhat test
 ```

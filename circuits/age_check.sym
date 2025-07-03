@@ -1,0 +1,5 @@
+1,1,0,main.valid
+2,2,0,main.birth_year
+3,3,0,main.current_year
+4,-1,0,main.claimed_over_18
+5,4,0,main.diff
